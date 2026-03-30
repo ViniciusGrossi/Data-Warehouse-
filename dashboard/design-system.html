@@ -1,0 +1,902 @@
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aero Design System — Pattern Library</title>
+<script src="assets/resource_3fa48481346f.es"></script>
+<script src="assets/iconify-icon_e19829e7f0e8.js"></script>
+<script src="assets/gsap_4a57399e4113.js"></script>
+<script src="assets/ScrollTrigger_8669edfeb171.js"></script>
+<script src="assets/three_1aecfa5aa56f.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="assets/css2_63748d5b7a37.css" rel="stylesheet"/>
+<link href="assets/css2_86e10c4bcbd4.css" id="all-fonts-link-font-geist" rel="stylesheet"/>
+<style>
+/* ── DS Page-Level Styles ── */
+.ds-nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; gap:1.5rem; padding:0.75rem 1.5rem; background:rgba(3,3,5,0.85); backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,0.05); font-family:'JetBrains Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.15em; overflow-x:auto; }
+.ds-nav a { color:rgba(255,255,255,0.4); text-decoration:none; white-space:nowrap; transition:color .2s; }
+.ds-nav a:hover { color:#fff; }
+.ds-section { padding:6rem 1.5rem 4rem; max-width:1280px; margin:0 auto; }
+.ds-section-title { font-family:'JetBrains Mono',monospace; font-size:10px; text-transform:uppercase; letter-spacing:0.2em; color:rgba(255,255,255,0.4); margin-bottom:2rem; display:flex; align-items:center; gap:0.75rem; border-bottom:1px solid rgba(255,255,255,0.05); padding-bottom:1rem; }
+.ds-section-title::before { content:''; width:6px; height:6px; border-radius:50%; background:#8b5cf6; box-shadow:0 0 12px rgba(139,92,246,0.8); }
+/* Typography table */
+.ds-type-row { display:flex; align-items:baseline; justify-content:space-between; padding:1.25rem 0; border-bottom:1px solid rgba(255,255,255,0.04); gap:2rem; }
+.ds-type-label { font-family:'JetBrains Mono',monospace; font-size:10px; text-transform:uppercase; letter-spacing:0.15em; color:rgba(255,255,255,0.3); min-width:120px; flex-shrink:0; }
+.ds-type-preview { flex:1; }
+.ds-type-spec { font-family:'JetBrains Mono',monospace; font-size:10px; color:rgba(255,255,255,0.25); white-space:nowrap; flex-shrink:0; }
+/* Color swatches */
+.ds-swatch-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:1rem; }
+.ds-swatch { border-radius:12px; overflow:hidden; border:1px solid rgba(255,255,255,0.05); }
+.ds-swatch-color { height:80px; }
+.ds-swatch-info { padding:0.75rem; background:rgba(11,12,14,0.8); font-family:'JetBrains Mono',monospace; font-size:10px; color:rgba(255,255,255,0.5); display:flex; flex-direction:column; gap:0.25rem; }
+.ds-swatch-name { color:rgba(255,255,255,0.8); }
+/* Component gallery */
+.ds-comp-group { display:flex; flex-wrap:wrap; gap:1rem; align-items:center; padding:1.5rem 0; }
+.ds-comp-label { font-family:'JetBrains Mono',monospace; font-size:10px; text-transform:uppercase; letter-spacing:0.15em; color:rgba(255,255,255,0.3); width:100%; margin-bottom:0.5rem; }
+/* Motion gallery */
+.ds-motion-card { padding:2rem; border:1px solid rgba(255,255,255,0.05); border-radius:16px; background:rgba(255,255,255,0.02); text-align:center; display:flex; flex-direction:column; align-items:center; gap:1rem; }
+.ds-motion-demo { width:80px; height:80px; border-radius:12px; background:rgba(139,92,246,0.15); border:1px solid rgba(139,92,246,0.3); display:flex; align-items:center; justify-content:center; }
+/* Layout demos */
+.ds-layout-demo { border:1px solid rgba(255,255,255,0.05); border-radius:16px; padding:1.5rem; background:rgba(255,255,255,0.01); }
+.ds-layout-placeholder { background:rgba(139,92,246,0.1); border:1px dashed rgba(139,92,246,0.3); border-radius:8px; min-height:60px; display:flex; align-items:center; justify-content:center; font-family:'JetBrains Mono',monospace; font-size:9px; color:rgba(139,92,246,0.6); text-transform:uppercase; letter-spacing:0.1em; }
+</style>
+<style data-scroll-fix="true">
+html, body { overflow:auto!important; overflow-x:hidden!important; height:auto!important; min-height:100%!important; scroll-behavior:smooth!important; opacity:1!important; visibility:visible!important; }
+body,.wrapper,main,#__next,#app,.page,.content { opacity:1!important; visibility:visible!important; }
+.opacity-0,[class*="opacity-0"] { opacity:1!important; }
+</style>
+</head>
+<body class="min-h-screen selection:bg-indigo-500/30 selection:text-white antialiased overflow-x-hidden text-white font-['Inter'] bg-[#030305]">
+
+<!-- ══════════════════════════════════════ -->
+<!-- DS NAV                                -->
+<!-- ══════════════════════════════════════ -->
+<nav class="ds-nav">
+  <a href="#ds-hero" style="color:#8b5cf6;font-weight:500;">Aero DS</a>
+  <a href="#ds-typography">Typography</a>
+  <a href="#ds-colors">Colors</a>
+  <a href="#ds-components">Components</a>
+  <a href="#ds-layout">Layout</a>
+  <a href="#ds-motion">Motion</a>
+  <a href="#ds-background">Background</a>
+  <a href="#ds-charts">Charts</a>
+  <a href="#ds-icons">Icons</a>
+</nav>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 0) HERO — Exact Clone, Text Adapted   -->
+<!-- ══════════════════════════════════════ -->
+<div id="ds-hero">
+<main class="md:px-12 flex flex-col z-10 w-full max-w-7xl mr-auto ml-auto pr-6 pb-32 pl-6 relative gap-x-4 gap-y-4">
+<header class="grid grid-cols-2 md:grid-cols-3 w-full gap-8 font-['JetBrains_Mono'] font-extralight uppercase text-xs text-white/40 tracking-widest">
+<div class="flex flex-col gap-2">
+<span class="text-violet-200/80">DESIGN SYSTEM — V1</span>
+<span class="">PATTERN LIBRARY</span>
+</div>
+<div class="hidden md:flex flex-col gap-2 text-center">
+<span class="text-white/80">TOKEN REFERENCE</span>
+<span class="">COMPONENT SPEC</span>
+</div>
+<div class="flex flex-col gap-2 text-right">
+<span class="text-fuchsia-200/80">DOCUMENTATION</span>
+<span class="">CANONICAL</span>
+</div>
+</header>
+<section class="grid grid-cols-1 lg:grid-cols-12 w-full mt-40 mb-40 gap-x-12 gap-y-12 items-center">
+<div class="lg:col-span-5 flex flex-col gap-8">
+<h1 class="md:text-8xl uppercase leading-none text-5xl font-thin tracking-tight">
+<div class="overflow-hidden inline-flex pb-2">
+<span class="inline-block">AERO</span>
+</div>
+<br/>
+<div class="overflow-hidden inline-flex pb-2">
+<span class="inline-block md:pl-20 md:pr-4 italic text-white/40 pr-4 pl-0">DESIGN</span>
+</div>
+</h1>
+<p class="text-lg md:text-xl font-extralight text-white/40 max-w-lg leading-relaxed">The complete design system and pattern library for Aero Studio. Every token, component, and motion pattern documented for pixel-perfect implementation.</p>
+</div>
+<article class="lg:col-span-7 flex flex-col min-h-[400px] overflow-hidden bg-[#030303]/90 border-white/5 border rounded-3xl relative shadow-2xl backdrop-blur-md">
+<div class="absolute top-8 left-8 z-20">
+<header class="text-[10px] text-white/30 uppercase tracking-[0.2em] flex items-center gap-3 font-extralight" style="font-family:'JetBrains Mono',monospace;">
+<svg class="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="m12 19 7-7 3 3-7 7-3-3z"></path><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="m2 2 7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+DS-01 / DESIGN TOKENS
+</header>
+</div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-white/5 blur-[80px] rounded-full pointer-events-none"></div>
+<div class="flex min-h-[400px] bg-gradient-to-br from-[#030303] to-white/[0.01] w-full h-full relative items-center justify-center">
+  <div style="font-family:'JetBrains Mono',monospace;text-align:center;padding:2rem;">
+    <div class="text-violet-400 text-xs uppercase tracking-widest mb-4">Design System Manifest</div>
+    <div class="text-white/20 text-[10px] leading-relaxed">
+      → Typography Scale<br/>→ Color Palette<br/>→ Surface Tokens<br/>→ Component Library<br/>→ Motion Spec<br/>→ Icon System
+    </div>
+  </div>
+</div>
+<div class="absolute bottom-8 left-8 right-8 z-20 pointer-events-none">
+<p class="text-xs text-white/40 leading-relaxed font-extralight max-w-md font-sans">Living documentation of the Aero visual language. Every pattern below is extracted directly from the production interface.</p>
+</div>
+</article>
+</section>
+</main>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 1) TYPOGRAPHY                         -->
+<!-- ══════════════════════════════════════ -->
+<section class="ds-section" id="ds-typography">
+<div class="ds-section-title">Typography</div>
+
+<div class="ds-type-row">
+  <span class="ds-type-label">Heading 1 (Hero)</span>
+  <div class="ds-type-preview"><h1 class="md:text-8xl uppercase leading-none text-5xl font-thin tracking-tight">AERO</h1></div>
+  <span class="ds-type-spec">clamp(48px,8vw,96px) / 1.0</span>
+</div>
+<div class="ds-type-row">
+  <span class="ds-type-label">Heading 2</span>
+  <div class="ds-type-preview"><h2 class="text-6xl md:text-8xl font-light tracking-tighter uppercase text-white">INTERACT</h2></div>
+  <span class="ds-type-spec">clamp(60px,8vw,96px) / 1.0</span>
+</div>
+<div class="ds-type-row">
+  <span class="ds-type-label">Heading 3</span>
+  <div class="ds-type-preview"><h2 class="text-3xl md:text-4xl font-light text-white tracking-tight leading-tight">Design, prototype, and ship</h2></div>
+  <span class="ds-type-spec">30px–36px / 1.15</span>
+</div>
+<div class="ds-type-row">
+  <span class="ds-type-label">Heading 4</span>
+  <div class="ds-type-preview"><h3 class="text-xl font-medium text-white tracking-tight">Marketing Websites</h3></div>
+  <span class="ds-type-spec">20px / 1.4</span>
+</div>
+<div class="ds-type-row">
+  <span class="ds-type-label">Bold L</span>
+  <div class="ds-type-preview"><span class="text-3xl md:text-4xl font-thin tracking-tight text-white">Global Edge</span></div>
+  <span class="ds-type-spec">30px–36px / 1.2</span>
+</div>
+<div class="ds-type-row">
+  <span class="ds-type-label">Bold M</span>
+  <div class="ds-type-preview"><span class="text-base font-extralight tracking-tight text-white/90">Visual Interface Engine</span></div>
+  <span class="ds-type-spec">16px / 1.5</span>
+</div>
+<div class="ds-type-row">
+  <span class="ds-type-label">Paragraph</span>
+  <div class="ds-type-preview"><p class="text-lg md:text-xl font-extralight text-white/40 max-w-lg leading-relaxed">Design, prototype, and ship high-performance websites seamlessly.</p></div>
+  <span class="ds-type-spec">18px–20px / 1.6</span>
+</div>
+<div class="ds-type-row">
+  <span class="ds-type-label">Regular M</span>
+  <div class="ds-type-preview"><p class="text-sm text-zinc-400 font-light leading-relaxed">From complex SaaS dashboards to consumer mobile apps. Focus on retention, clarity, and delight.</p></div>
+  <span class="ds-type-spec">14px / 1.6</span>
+</div>
+<div class="ds-type-row">
+  <span class="ds-type-label">Regular S</span>
+  <div class="ds-type-preview"><p class="text-xs text-white/40 leading-relaxed font-extralight font-sans">Engineered for pure visual clarity, maintaining 60fps rendering stability.</p></div>
+  <span class="ds-type-spec">12px / 1.6</span>
+</div>
+<div class="ds-type-row">
+  <span class="ds-type-label">Mono / Code</span>
+  <div class="ds-type-preview"><span class="font-['JetBrains_Mono'] text-xs text-white/40 uppercase tracking-widest">GSAP // MOTION_CORE</span></div>
+  <span class="ds-type-spec">12px / 1.5 · JetBrains Mono</span>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 2) COLORS & SURFACES                  -->
+<!-- ══════════════════════════════════════ -->
+<section class="ds-section" id="ds-colors">
+<div class="ds-section-title">Colors &amp; Surfaces</div>
+
+<h3 class="text-sm font-light text-white/60 mb-4">Backgrounds</h3>
+<div class="ds-swatch-grid" style="margin-bottom:2rem;">
+  <div class="ds-swatch"><div class="ds-swatch-color" style="background:#030305;"></div><div class="ds-swatch-info"><span class="ds-swatch-name">Page Background</span>#030305</div></div>
+  <div class="ds-swatch"><div class="ds-swatch-color" style="background:#050508;"></div><div class="ds-swatch-info"><span class="ds-swatch-name">Card Dark</span>#050508</div></div>
+  <div class="ds-swatch"><div class="ds-swatch-color" style="background:#0B0C0E;"></div><div class="ds-swatch-info"><span class="ds-swatch-name">Canvas / Sidebar</span>#0B0C0E</div></div>
+  <div class="ds-swatch"><div class="ds-swatch-color" style="background:#0E0F11;"></div><div class="ds-swatch-info"><span class="ds-swatch-name">Toolbar</span>#0E0F11</div></div>
+  <div class="ds-swatch"><div class="ds-swatch-color" style="background:#131418;"></div><div class="ds-swatch-info"><span class="ds-swatch-name">Floating Bar</span>#131418</div></div>
+</div>
+
+<h3 class="text-sm font-light text-white/60 mb-4">Accent Colors</h3>
+<div class="ds-swatch-grid" style="margin-bottom:2rem;">
+  <div class="ds-swatch"><div class="ds-swatch-color bg-violet-500"></div><div class="ds-swatch-info"><span class="ds-swatch-name">Violet 500 (Primary)</span>rgb(139,92,246)</div></div>
+  <div class="ds-swatch"><div class="ds-swatch-color bg-violet-600"></div><div class="ds-swatch-info"><span class="ds-swatch-name">Violet 600 (CTA)</span>Buttons, Share</div></div>
+  <div class="ds-swatch"><div class="ds-swatch-color bg-violet-400"></div><div class="ds-swatch-info"><span class="ds-swatch-name">Violet 400</span>Tags, Accent Text</div></div>
+  <div class="ds-swatch"><div class="ds-swatch-color bg-purple-500"></div><div class="ds-swatch-info"><span class="ds-swatch-name">Purple 500</span>Avatars</div></div>
+  <div class="ds-swatch"><div class="ds-swatch-color bg-fuchsia-400"></div><div class="ds-swatch-info"><span class="ds-swatch-name">Fuchsia 400</span>Secondary Accent</div></div>
+  <div class="ds-swatch"><div class="ds-swatch-color bg-emerald-400"></div><div class="ds-swatch-info"><span class="ds-swatch-name">Emerald 400</span>Success / Saved</div></div>
+  <div class="ds-swatch"><div class="ds-swatch-color" style="background:#FF5F57;"></div><div class="ds-swatch-info"><span class="ds-swatch-name">Window Red</span>#FF5F57</div></div>
+  <div class="ds-swatch"><div class="ds-swatch-color" style="background:#FEBC2E;"></div><div class="ds-swatch-info"><span class="ds-swatch-name">Window Yellow</span>#FEBC2E</div></div>
+  <div class="ds-swatch"><div class="ds-swatch-color" style="background:#28C840;"></div><div class="ds-swatch-info"><span class="ds-swatch-name">Window Green</span>#28C840</div></div>
+</div>
+
+<h3 class="text-sm font-light text-white/60 mb-4">Borders &amp; Dividers</h3>
+<div style="display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:2rem;">
+  <div style="padding:1.5rem;border:1px solid rgba(255,255,255,0.05);border-radius:12px;flex:1;min-width:200px;"><span class="font-['JetBrains_Mono'] text-[10px] text-white/30 uppercase tracking-widest">border-white/5</span><br><span class="text-xs text-white/40 font-extralight">Default card border</span></div>
+  <div style="padding:1.5rem;border:1px solid rgba(255,255,255,0.08);border-radius:12px;flex:1;min-width:200px;"><span class="font-['JetBrains_Mono'] text-[10px] text-white/30 uppercase tracking-widest">border-white/[0.08]</span><br><span class="text-xs text-white/40 font-extralight">Toolbar / floating bar</span></div>
+  <div style="padding:1.5rem;border:1px solid rgba(139,92,246,0.3);border-radius:12px;flex:1;min-width:200px;"><span class="font-['JetBrains_Mono'] text-[10px] text-white/30 uppercase tracking-widest">border-violet-500/30</span><br><span class="text-xs text-white/40 font-extralight">Selection highlight</span></div>
+</div>
+
+<h3 class="text-sm font-light text-white/60 mb-4">Glass / Blur Surfaces</h3>
+<div style="display:flex;flex-wrap:wrap;gap:1rem;">
+  <div class="bg-[#030305]/50 backdrop-blur-md border border-white/5 rounded-2xl p-6" style="flex:1;min-width:220px;">
+    <span class="font-['JetBrains_Mono'] text-[10px] text-white/30 uppercase tracking-widest">Nav Glass</span>
+    <p class="text-xs text-white/40 font-extralight mt-2">bg-[#030305]/50 · backdrop-blur-md</p>
+  </div>
+  <div class="bg-[#0E0F11]/95 backdrop-blur-xl border border-white/[0.08] rounded-xl p-6 shadow-2xl" style="flex:1;min-width:220px;">
+    <span class="font-['JetBrains_Mono'] text-[10px] text-white/30 uppercase tracking-widest">Properties Panel</span>
+    <p class="text-xs text-white/40 font-extralight mt-2">bg-[#0E0F11]/95 · backdrop-blur-xl</p>
+  </div>
+  <div class="bg-gradient-to-br from-white/[0.03] to-transparent backdrop-blur-md border border-white/5 rounded-3xl p-6" style="flex:1;min-width:220px;">
+    <span class="font-['JetBrains_Mono'] text-[10px] text-white/30 uppercase tracking-widest">Feature Card</span>
+    <p class="text-xs text-white/40 font-extralight mt-2">gradient from-white/[0.03] · backdrop-blur-md</p>
+  </div>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 3) UI COMPONENTS                      -->
+<!-- ══════════════════════════════════════ -->
+<section class="ds-section" id="ds-components">
+<div class="ds-section-title">UI Components</div>
+
+<!-- Buttons -->
+<div class="ds-comp-label">Buttons</div>
+<div class="ds-comp-group">
+  <button class="px-4 py-2 bg-white text-black text-sm rounded-full font-medium hover:bg-white/90 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.2)]">Sign Up</button>
+  <button class="text-[11px] font-medium text-white px-3 py-1.5 rounded transition-colors shadow-lg bg-violet-600 hover:bg-violet-700 shadow-violet-900/20">Share</button>
+  <button class="text-[11px] font-medium text-white px-3 py-1.5 rounded transition-colors shadow-lg bg-violet-600 hover:bg-violet-700 shadow-violet-900/20">Publish</button>
+  <button class="w-full max-w-[200px] py-3 rounded-full border border-white/10 bg-white/5 text-white text-sm font-medium hover:bg-white/10 transition-colors shadow-inner">Initialize Free</button>
+  <button class="w-full max-w-[200px] py-3 rounded-full bg-white text-black text-sm font-medium hover:bg-white/90 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.2)]">Start Studio Trial</button>
+  <button class="group inline-flex shrink-0 items-center gap-2.5 rounded-full bg-neutral-100 px-5 py-2.5 text-sm font-light text-black transition-all duration-300 hover:bg-white hover:shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+    <span class="relative flex h-2 w-2"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-black opacity-30"></span><span class="relative inline-flex h-2 w-2 rounded-full bg-black"></span></span>Start Building</button>
+  <button class="w-16 h-16 rounded-full flex items-center justify-center text-white bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 transition-colors"><svg class="lucide lucide-arrow-right" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="20"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></button>
+</div>
+
+<!-- Tags / Badges -->
+<div class="ds-comp-label" style="margin-top:2rem;">Tags &amp; Badges</div>
+<div class="ds-comp-group">
+  <span class="px-2 py-0.5 rounded-full text-[10px] bg-violet-500/20 text-violet-400">CMS</span>
+  <span class="px-2 py-0.5 rounded-full bg-white/10 text-white/70 text-[10px]">Release</span>
+  <span class="px-2 py-0.5 rounded border border-white/10 text-white/40 text-[10px] hover:text-white cursor-pointer transition-colors">+ Add</span>
+  <div class="text-white text-[10px] font-medium px-2 py-1 uppercase tracking-wider rounded border shadow-lg bg-violet-500 border-violet-400/50">Popular</div>
+  <div class="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium text-white/80 w-fit bg-white/5 border border-white/10 backdrop-blur-md">
+    <svg class="lucide lucide-layers text-violet-400" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="14"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>FUNDAMENTALS</div>
+  <div class="flex items-center gap-2 px-3 py-1.5 rounded-full border text-[10px] font-['JetBrains_Mono'] uppercase tracking-widest bg-violet-500/10 border-violet-500/20 text-violet-300/90"><div class="w-1 h-1 rounded-full animate-ping bg-violet-400"></div>Auto-optimize</div>
+</div>
+
+<!-- Inputs -->
+<div class="ds-comp-label" style="margin-top:2rem;">Input</div>
+<div class="ds-comp-group" style="max-width:400px;">
+  <div class="relative group w-full">
+    <svg class="absolute left-2.5 top-2 w-3.5 h-3.5 text-white/20 group-focus-within:text-white/40 transition-colors" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+    <input class="w-full bg-white/[0.03] border border-transparent focus:border-white/[0.08] hover:bg-white/[0.05] rounded-md py-1.5 pl-8 pr-2 text-[12px] text-white placeholder-white/20 focus:outline-none transition-all" placeholder="Search layers" type="text"/>
+  </div>
+</div>
+
+<!-- Toggle Switches -->
+<div class="ds-comp-label" style="margin-top:2rem;">Toggle Switch</div>
+<div class="ds-comp-group">
+  <label class="flex items-center justify-between cursor-pointer group/toggle" style="gap:1rem;">
+    <div class="flex flex-col gap-1"><span class="text-white/80 font-light text-sm">Compression Level</span><span class="text-[10px] font-['JetBrains_Mono'] text-white/30 uppercase tracking-widest">Maximum</span></div>
+    <div class="relative"><input checked="" class="sr-only peer" type="checkbox"/><div class="w-10 h-5 bg-[#050508] border border-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white/70 peer-checked:after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all shadow-inner group-hover/toggle:border-white/20 transition-all peer-checked:bg-violet-500/80 peer-checked:border-violet-500/80"></div></div>
+  </label>
+  <label class="flex items-center justify-between cursor-pointer group/toggle" style="gap:1rem;">
+    <div class="flex flex-col gap-1"><span class="text-white/80 font-light text-sm">Font Subsetting</span><span class="text-[10px] font-['JetBrains_Mono'] text-white/30 uppercase tracking-widest">OFF</span></div>
+    <div class="relative"><input class="sr-only peer" type="checkbox"/><div class="w-10 h-5 bg-[#050508] border border-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white/40 peer-checked:after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all shadow-inner group-hover/toggle:border-white/20 transition-all peer-checked:bg-violet-500/80 peer-checked:border-violet-500/80"></div></div>
+  </label>
+</div>
+
+<!-- Window Controls -->
+<div class="ds-comp-label" style="margin-top:2rem;">Window Controls</div>
+<div class="ds-comp-group">
+  <div class="flex gap-1.5">
+    <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+    <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+    <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+  </div>
+</div>
+
+<!-- Avatars -->
+<div class="ds-comp-label" style="margin-top:2rem;">Avatars</div>
+<div class="ds-comp-group">
+  <div class="flex items-center -space-x-2">
+    <div class="w-6 h-6 rounded-full border border-[#0E0F11] flex items-center justify-center text-[9px] font-bold text-white bg-violet-500">AD</div>
+    <div class="w-6 h-6 rounded-full bg-purple-500 border border-[#0E0F11] flex items-center justify-center text-[9px] font-bold text-white">UX</div>
+    <div class="w-6 h-6 rounded-full bg-white/[0.1] border border-[#0E0F11] border-dashed flex items-center justify-center text-[9px] text-white/40">+1</div>
+  </div>
+</div>
+
+<!-- Progress Bars -->
+<div class="ds-comp-label" style="margin-top:2rem;">Progress Bars</div>
+<div style="display:flex;flex-direction:column;gap:1.5rem;max-width:500px;">
+  <div class="flex flex-col gap-2.5">
+    <div class="flex justify-between items-center text-xs font-['JetBrains_Mono'] text-white/40 uppercase tracking-widest"><span>Cache Hit</span><span class="text-violet-300/80">98%</span></div>
+    <div class="w-full h-[2px] bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r w-[98%] rounded-full shadow-[0_0_10px_rgba(99,102,241,0.5)] relative from-violet-500/20 to-violet-400/90"><div class="absolute right-0 top-0 bottom-0 w-4 bg-white/50 blur-[2px]"></div></div></div>
+  </div>
+  <div class="flex flex-col gap-2.5">
+    <div class="flex justify-between items-center text-xs font-['JetBrains_Mono'] text-white/40 uppercase tracking-widest"><span>Bundle Size</span><span class="text-fuchsia-300/80">42KB</span></div>
+    <div class="w-full h-[2px] bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-fuchsia-500/20 to-fuchsia-400/90 w-[82%] rounded-full shadow-[0_0_10px_rgba(232,121,249,0.5)] relative"><div class="absolute right-0 top-0 bottom-0 w-4 bg-white/50 blur-[2px]"></div></div></div>
+  </div>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 4) LAYOUT & SPACING                   -->
+<!-- ══════════════════════════════════════ -->
+<section class="ds-section" id="ds-layout">
+<div class="ds-section-title">Layout &amp; Spacing</div>
+
+<h3 class="text-sm font-light text-white/60 mb-4">Hero: 12-col Split (5 + 7)</h3>
+<div class="ds-layout-demo" style="margin-bottom:2rem;">
+  <div style="display:grid;grid-template-columns:5fr 7fr;gap:3rem;">
+    <div class="ds-layout-placeholder" style="min-height:200px;">col-span-5 · Text</div>
+    <div class="ds-layout-placeholder" style="min-height:200px;">col-span-7 · Canvas Card</div>
+  </div>
+</div>
+
+<h3 class="text-sm font-light text-white/60 mb-4">Grid: 2-Column Cards</h3>
+<div class="ds-layout-demo" style="margin-bottom:2rem;">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="ds-layout-placeholder" style="min-height:120px;">Card 1</div>
+    <div class="ds-layout-placeholder" style="min-height:120px;">Card 2</div>
+    <div class="ds-layout-placeholder" style="min-height:120px;">Card 3</div>
+    <div class="ds-layout-placeholder" style="min-height:120px;">Card 4</div>
+  </div>
+</div>
+
+<h3 class="text-sm font-light text-white/60 mb-4">Bento Grid: 12-col (4 + 8 / 6 + 6)</h3>
+<div class="ds-layout-demo" style="margin-bottom:2rem;">
+  <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:1px;background:rgba(255,255,255,0.1);">
+    <div class="ds-layout-placeholder" style="grid-column:span 4;min-height:200px;background:rgba(3,3,3,0.9);">col-span-4</div>
+    <div class="ds-layout-placeholder" style="grid-column:span 8;min-height:200px;background:rgba(11,12,14,1);">col-span-8</div>
+    <div class="ds-layout-placeholder" style="grid-column:span 6;min-height:140px;background:rgba(3,3,3,0.9);">col-span-6</div>
+    <div class="ds-layout-placeholder" style="grid-column:span 6;min-height:140px;background:rgba(3,3,3,0.9);">col-span-6</div>
+  </div>
+</div>
+
+<h3 class="text-sm font-light text-white/60 mb-4">3-Column Feature Cards</h3>
+<div class="ds-layout-demo">
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div class="ds-layout-placeholder" style="min-height:200px;">Panel 01</div>
+    <div class="ds-layout-placeholder" style="min-height:200px;">Panel 02</div>
+    <div class="ds-layout-placeholder" style="min-height:200px;">Panel 03</div>
+  </div>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 5) MOTION & INTERACTION               -->
+<!-- ══════════════════════════════════════ -->
+<section class="ds-section" id="ds-motion">
+<div class="ds-section-title">Motion &amp; Interaction</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  <!-- Hover Lift -->
+  <div class="ds-motion-card group">
+    <div class="ds-motion-demo transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-violet-900/20 group-hover:shadow-2xl">
+      <svg class="text-violet-400" fill="none" height="24" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" width="24"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+    </div>
+    <span class="font-['JetBrains_Mono'] text-[10px] text-white/40 uppercase tracking-widest">Hover Lift</span>
+    <span class="text-xs text-white/30 font-extralight">translate-y · duration-500</span>
+  </div>
+  <!-- Scale on Hover -->
+  <div class="ds-motion-card group">
+    <div class="ds-motion-demo transition-transform duration-700 group-hover:scale-105">
+      <svg class="text-violet-400" fill="none" height="24" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" width="24"><rect height="18" rx="2" width="18" x="3" y="3"></rect></svg>
+    </div>
+    <span class="font-['JetBrains_Mono'] text-[10px] text-white/40 uppercase tracking-widest">Scale Hover</span>
+    <span class="text-xs text-white/30 font-extralight">scale-105 · duration-700</span>
+  </div>
+  <!-- Border Glow -->
+  <div class="ds-motion-card group">
+    <div class="ds-motion-demo border border-white/5 group-hover:border-violet-500/80 transition-all duration-500 group-hover:shadow-[0_0_12px_rgba(139,92,246,0.6)]">
+      <span class="w-1.5 h-1.5 rounded-full animate-pulse bg-violet-500"></span>
+    </div>
+    <span class="font-['JetBrains_Mono'] text-[10px] text-white/40 uppercase tracking-widest">Border Glow</span>
+    <span class="text-xs text-white/30 font-extralight">border-violet-500/80 · shadow glow</span>
+  </div>
+  <!-- Color Transition -->
+  <div class="ds-motion-card group">
+    <div class="ds-motion-demo">
+      <span class="text-zinc-500 group-hover:text-white transition-colors font-['JetBrains_Mono'] text-xs">Hover me</span>
+    </div>
+    <span class="font-['JetBrains_Mono'] text-[10px] text-white/40 uppercase tracking-widest">Color Transition</span>
+    <span class="text-xs text-white/30 font-extralight">transition-colors</span>
+  </div>
+  <!-- Ping Animation -->
+  <div class="ds-motion-card">
+    <div class="ds-motion-demo">
+      <div class="relative flex h-1.5 w-1.5 items-center justify-center">
+        <span class="absolute inline-flex h-full w-full animate-ping rounded-full opacity-60 bg-violet-400" style="animation-duration:3s;"></span>
+        <span class="relative inline-flex h-1.5 w-1.5 rounded-full shadow-[0_0_8px_rgba(6,182,212,0.8)] bg-violet-500"></span>
+      </div>
+    </div>
+    <span class="font-['JetBrains_Mono'] text-[10px] text-white/40 uppercase tracking-widest">Ping Pulse</span>
+    <span class="text-xs text-white/30 font-extralight">animate-ping · 3s duration</span>
+  </div>
+  <!-- Entrance Fade -->
+  <div class="ds-motion-card">
+    <div class="ds-motion-demo">
+      <span class="font-['JetBrains_Mono'] text-[10px] text-white/30">GSAP reveal</span>
+    </div>
+    <span class="font-['JetBrains_Mono'] text-[10px] text-white/40 uppercase tracking-widest">Scroll Reveal</span>
+    <span class="text-xs text-white/30 font-extralight">y: 110% → 0% · power4.out · stagger 0.04</span>
+  </div>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 6) ICONS                              -->
+<!-- ══════════════════════════════════════ -->
+<section class="ds-section" id="ds-icons" style="padding-bottom:6rem;">
+<div class="ds-section-title">Icons (Lucide SVG)</div>
+<p class="text-sm font-extralight text-white/40 mb-6">All icons use the Lucide icon set via inline SVG. Rendered at 14–24px with stroke-width 1.5–2. Colors inherit from parent or are set via Tailwind text utilities.</p>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:1.5rem;">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;padding:1rem;border:1px solid rgba(255,255,255,0.04);border-radius:12px;">
+    <svg class="text-white/60" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="20"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+    <span class="font-['JetBrains_Mono'] text-[9px] text-white/30 uppercase">arrow-right</span>
+  </div>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;padding:1rem;border:1px solid rgba(255,255,255,0.04);border-radius:12px;">
+    <svg class="text-white/60" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="20"><path d="m9 18 6-6-6-6"></path></svg>
+    <span class="font-['JetBrains_Mono'] text-[9px] text-white/30 uppercase">chevron-right</span>
+  </div>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;padding:1rem;border:1px solid rgba(255,255,255,0.04);border-radius:12px;">
+    <svg class="text-white/60" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="20"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+    <span class="font-['JetBrains_Mono'] text-[9px] text-white/30 uppercase">layers</span>
+  </div>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;padding:1rem;border:1px solid rgba(255,255,255,0.04);border-radius:12px;">
+    <svg class="text-white/60" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="20"><path d="m12 19 7-7 3 3-7 7-3-3z"></path><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="m2 2 7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+    <span class="font-['JetBrains_Mono'] text-[9px] text-white/30 uppercase">pen-tool</span>
+  </div>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;padding:1rem;border:1px solid rgba(255,255,255,0.04);border-radius:12px;">
+    <svg class="text-white/60" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="20"><path d="M5.5 8.5 9 12l-3.5 3.5L2 12l3.5-3.5Z"></path><path d="m12 2 3.5 3.5L12 9 8.5 5.5 12 2Z"></path><path d="M18.5 8.5 22 12l-3.5 3.5L15 12l3.5-3.5Z"></path><path d="m12 15 3.5 3.5L12 22l-3.5-3.5L12 15Z"></path></svg>
+    <span class="font-['JetBrains_Mono'] text-[9px] text-white/30 uppercase">component</span>
+  </div>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;padding:1rem;border:1px solid rgba(255,255,255,0.04);border-radius:12px;">
+    <svg class="text-white/60" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="20"><rect height="16" rx="2" width="16" x="4" y="4"></rect><rect height="6" width="6" x="9" y="9"></rect><line x1="9" x2="9" y1="1" y2="4"></line><line x1="15" x2="15" y1="1" y2="4"></line><line x1="9" x2="9" y1="20" y2="23"></line><line x1="15" x2="15" y1="20" y2="23"></line><line x1="20" x2="23" y1="9" y2="9"></line><line x1="20" x2="23" y1="14" y2="14"></line><line x1="1" x2="4" y1="9" y2="9"></line><line x1="1" x2="4" y1="14" y2="14"></line></svg>
+    <span class="font-['JetBrains_Mono'] text-[9px] text-white/30 uppercase">cpu</span>
+  </div>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;padding:1rem;border:1px solid rgba(255,255,255,0.04);border-radius:12px;">
+    <svg class="text-white/60" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="20"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path></svg>
+    <span class="font-['JetBrains_Mono'] text-[9px] text-white/30 uppercase">shield</span>
+  </div>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;padding:1rem;border:1px solid rgba(255,255,255,0.04);border-radius:12px;">
+    <svg class="text-white/60" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="20"><path d="M20 6 9 17l-5-5"></path></svg>
+    <span class="font-['JetBrains_Mono'] text-[9px] text-white/30 uppercase">check</span>
+  </div>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;padding:1rem;border:1px solid rgba(255,255,255,0.04);border-radius:12px;">
+    <svg class="text-white/60" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+    <span class="font-['JetBrains_Mono'] text-[9px] text-white/30 uppercase">menu</span>
+  </div>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;padding:1rem;border:1px solid rgba(255,255,255,0.04);border-radius:12px;">
+    <svg class="text-white/60" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="20"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
+    <span class="font-['JetBrains_Mono'] text-[9px] text-white/30 uppercase">download</span>
+  </div>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;padding:1rem;border:1px solid rgba(255,255,255,0.04);border-radius:12px;">
+    <svg class="text-white/60" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="20"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path></svg>
+    <span class="font-['JetBrains_Mono'] text-[9px] text-white/30 uppercase">sparkles</span>
+  </div>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;padding:1rem;border:1px solid rgba(255,255,255,0.04);border-radius:12px;">
+    <svg class="text-white/60" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="20"><rect height="20" rx="2" ry="2" width="14" x="5" y="2"></rect><path d="M12 18h.01"></path></svg>
+    <span class="font-['JetBrains_Mono'] text-[9px] text-white/30 uppercase">smartphone</span>
+  </div>
+</div>
+
+<p class="text-xs text-white/20 font-extralight mt-6" style="font-family:'JetBrains Mono',monospace;">Icon sizes: 12px (toolbars) · 14px (inline) · 16px (labels) · 20px (cards) · 24px (feature)</p>
+</section>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 7) BACKGROUND & CANVAS EFFECTS        -->
+<!-- ══════════════════════════════════════ -->
+<section class="ds-section" id="ds-background">
+<div class="ds-section-title">Background &amp; Canvas Effects</div>
+
+<!-- WebGL Lightning Shader -->
+<h3 class="text-sm font-light text-white/60 mb-4">WebGL Lightning Shader (Mouse-Reactive)</h3>
+<p class="text-sm font-extralight text-white/40 mb-6">The hero background uses a full-screen WebGL shader with procedural lightning bolts that react to mouse movement. Move your cursor over the canvas below to see the effect.</p>
+<div class="relative rounded-3xl overflow-hidden border border-white/5" style="height:500px;">
+<canvas id="ds-glcanvas" style="position:absolute;inset:0;width:100%;height:100%;"></canvas>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+  <div style="text-align:center;">
+    <span class="font-['JetBrains_Mono'] text-[10px] text-white/30 uppercase tracking-widest">Move mouse to interact</span>
+    <div class="mt-4 text-xs text-white/20 font-extralight max-w-xs mx-auto">GLSL fragment shader · 3 directional energy lines · procedural noise lightning · spring-based mouse tracking</div>
+  </div>
+</div>
+</div>
+<div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+  <div style="padding:1rem;border:1px solid rgba(255,255,255,0.04);border-radius:12px;">
+    <span class="font-['JetBrains_Mono'] text-[10px] text-violet-400/80 uppercase tracking-widest">Base Color</span>
+    <p class="text-xs text-white/40 font-extralight mt-1">vec3(0.6, 0.5, 1.0) — Violet</p>
+  </div>
+  <div style="padding:1rem;border:1px solid rgba(255,255,255,0.04);border-radius:12px;">
+    <span class="font-['JetBrains_Mono'] text-[10px] text-violet-400/80 uppercase tracking-widest">Lightning</span>
+    <p class="text-xs text-white/40 font-extralight mt-1">Procedural noise · flicker gate</p>
+  </div>
+  <div style="padding:1rem;border:1px solid rgba(255,255,255,0.04);border-radius:12px;">
+    <span class="font-['JetBrains_Mono'] text-[10px] text-violet-400/80 uppercase tracking-widest">Mouse Decay</span>
+    <p class="text-xs text-white/40 font-extralight mt-1">150ms active → 350ms fadeout</p>
+  </div>
+</div>
+
+<!-- THREE.js Topology -->
+<h3 class="text-sm font-light text-white/60 mb-4 mt-12">3D Topology Canvas Engine</h3>
+<p class="text-sm font-extralight text-white/40 mb-6">Three canvas-based 3D topology visualizations used in the Interaction Engine section. Each uses a different node distribution (lattice, sphere, complex).</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+  <div class="group relative flex flex-col items-center justify-between h-[350px] bg-gradient-to-br from-white/[0.03] to-transparent hover:from-white/[0.06] transition-colors duration-500 rounded-3xl border border-white/5 overflow-hidden backdrop-blur-md p-6">
+    <span class="font-['JetBrains_Mono'] text-[10px] text-white/40 uppercase tracking-widest">Lattice</span>
+    <canvas class="w-full max-w-[200px] aspect-square opacity-60 group-hover:opacity-100 transition-opacity duration-1000" id="ds-topo-1"></canvas>
+    <span class="text-xs text-white/20 font-extralight">25 nodes · random distribution</span>
+  </div>
+  <div class="group relative flex flex-col items-center justify-between h-[350px] bg-gradient-to-br from-white/[0.03] to-transparent hover:from-white/[0.06] transition-colors duration-500 rounded-3xl border border-white/5 overflow-hidden backdrop-blur-md p-6">
+    <span class="font-['JetBrains_Mono'] text-[10px] text-white/40 uppercase tracking-widest">Sphere</span>
+    <canvas class="w-full max-w-[200px] aspect-square opacity-60 group-hover:opacity-100 transition-opacity duration-1000" id="ds-topo-2"></canvas>
+    <span class="text-xs text-white/20 font-extralight">25 nodes · Fibonacci sphere</span>
+  </div>
+  <div class="group relative flex flex-col items-center justify-between h-[350px] bg-gradient-to-br from-white/[0.03] to-transparent hover:from-white/[0.06] transition-colors duration-500 rounded-3xl border border-white/5 overflow-hidden backdrop-blur-md p-6">
+    <span class="font-['JetBrains_Mono'] text-[10px] text-white/40 uppercase tracking-widest">Complex</span>
+    <canvas class="w-full max-w-[200px] aspect-square opacity-60 group-hover:opacity-100 transition-opacity duration-1000" id="ds-topo-3"></canvas>
+    <span class="text-xs text-white/20 font-extralight">40 nodes · dense connections</span>
+  </div>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 8) DATA VISUALIZATION / CHARTS         -->
+<!-- ══════════════════════════════════════ -->
+<section class="ds-section" id="ds-charts" style="padding-bottom:6rem;">
+<div class="ds-section-title">Data Visualization</div>
+<p class="text-sm font-extralight text-white/40 mb-8">Charts use Chart.js with the site's dark theme tokens. Axis labels in JetBrains Mono, tooltip styled to match card surfaces, and gradient fills for data series.</p>
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+  <!-- Telemetry Chart -->
+  <div class="group relative bg-gradient-to-br from-white/[0.03] to-transparent hover:from-white/[0.06] transition-colors duration-500 rounded-3xl border border-white/5 overflow-hidden backdrop-blur-md p-6 md:p-8">
+    <div class="flex items-center gap-3 text-xs font-['JetBrains_Mono'] text-white/40 uppercase tracking-widest mb-6">
+      <div class="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse shadow-[0_0_12px_rgba(34,211,238,0.8)]"></div>
+      <span>Telemetry — Live Signal</span>
+    </div>
+    <div class="w-full" style="height:250px;">
+      <canvas id="ds-telemetryChart"></canvas>
+    </div>
+    <div class="mt-4 flex gap-4 text-[10px] font-['JetBrains_Mono'] text-white/30 uppercase tracking-widest">
+      <span><span class="inline-block w-2 h-[2px] bg-cyan-400 mr-1"></span>Primary</span>
+      <span><span class="inline-block w-2 h-[2px] bg-blue-500 mr-1"></span>Secondary</span>
+      <span><span class="inline-block w-2 h-[2px] bg-gray-600 mr-1"></span>Baseline</span>
+    </div>
+  </div>
+
+  <!-- Threat Mitigation Chart -->
+  <div class="group relative bg-gradient-to-br from-white/[0.03] to-transparent hover:from-white/[0.06] transition-colors duration-500 rounded-3xl border border-white/5 overflow-hidden backdrop-blur-md p-6 md:p-8">
+    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl bg-violet-500/5"></div>
+    <div class="relative z-10">
+      <div class="flex justify-between items-start mb-6">
+        <div class="flex flex-col gap-2">
+          <div class="flex items-center gap-3 text-xs font-['JetBrains_Mono'] text-violet-400/50 uppercase tracking-widest">
+            <svg class="text-violet-400/80" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="16"><path d="M3 3v18h18"></path><path d="m19 9-5 5-4-4-3 3"></path></svg>
+            <span class="text-violet-300/60">Threat Mitigation</span>
+          </div>
+          <h3 class="text-3xl font-thin tracking-tight text-white">1,492 <span class="text-lg text-violet-500/40 font-extralight">compressed</span></h3>
+        </div>
+        <div class="flex items-center gap-2 px-3 py-1.5 rounded-full border text-[10px] font-['JetBrains_Mono'] uppercase tracking-widest bg-violet-500/10 border-violet-500/20 text-violet-300/90">
+          <div class="w-1 h-1 rounded-full animate-ping bg-violet-400"></div>Auto-optimize
+        </div>
+      </div>
+      <div class="w-full" style="height:250px;">
+        <canvas id="ds-threatChart"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SCRIPTS: WebGL Shader + Topology + Charts          -->
+<!-- ═══════════════════════════════════════════════════ -->
+<script>
+// ── WebGL Lightning Shader (from index.html hero) ──
+(function() {
+  const canvas = document.getElementById('ds-glcanvas');
+  if (!canvas) return;
+  const gl = canvas.getContext('webgl');
+  if (!gl) return;
+
+  let mouseX = -1000, mouseY = -1000;
+  let lastMouseMove = 0;
+  let currentMouseActive = 0.0;
+
+  canvas.parentElement.addEventListener('mousemove', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    mouseX = e.clientX - rect.left;
+    mouseY = rect.height - (e.clientY - rect.top);
+    lastMouseMove = Date.now();
+  });
+
+  const vsSource = `
+    attribute vec4 aVertexPosition;
+    void main() { gl_Position = aVertexPosition; }
+  `;
+
+  const fsSource = `
+    precision highp float;
+    uniform vec2 u_resolution;
+    uniform float u_time;
+    uniform vec2 u_mouse;
+    uniform float u_mouseActive;
+
+    float hash(float n) { return fract(sin(n)*753.5453123); }
+    float noise(float x) {
+      float i = floor(x); float f = fract(x);
+      f = f*f*(3.0-2.0*f);
+      return mix(hash(i), hash(i+1.0), f);
+    }
+
+    float lightning(vec2 uv, vec2 a, vec2 b, float t) {
+      vec2 ab = b - a; float len = length(ab);
+      if(len < 0.01) return 0.0;
+      vec2 dir = ab / len;
+      vec2 pa = uv - a;
+      float h = clamp(dot(pa, dir) / len, 0.0, 1.0);
+      float dist = length(pa - dir * (h * len));
+      float env = sin(h * 3.1415);
+      float offset = (noise(h * 20.0 - t * 25.0) - 0.5) * 0.1 * env;
+      offset += (noise(h * 50.0 + t * 40.0) - 0.5) * 0.03 * env;
+      float d = abs(dist + offset);
+      return (0.0002 / (d + 0.0002) + 0.00001 / (d*d + 0.00001)) * env;
+    }
+
+    vec2 sdLine(vec2 p, vec2 a, vec2 b) {
+      vec2 pa = p - a, ba = b - a;
+      float h = clamp(dot(pa, ba) / dot(ba, ba), 0.0, 1.0);
+      return vec2(length(pa - ba * h), h);
+    }
+
+    void main() {
+      vec2 uv = gl_FragCoord.xy / u_resolution.xy;
+      uv = uv * 2.0 - 1.0;
+      uv.x *= u_resolution.x / u_resolution.y;
+
+      vec2 mouseUV = u_mouse / u_resolution.xy;
+      mouseUV = mouseUV * 2.0 - 1.0;
+      mouseUV.x *= u_resolution.x / u_resolution.y;
+
+      vec2 center = vec2(-0.7, -0.3);
+      center.x += sin(u_time * 0.3) * 0.04;
+      center.y += cos(u_time * 0.2) * 0.04;
+
+      vec2 dirUp = normalize(vec2(0.2, 1.0));
+      vec2 dirRight = normalize(vec2(1.0, -0.15));
+      vec2 dirDownLeft = normalize(vec2(-0.9, -0.5));
+
+      vec2 l1 = sdLine(uv, center, center + dirUp * 5.0);
+      vec2 l2 = sdLine(uv, center, center + dirRight * 5.0);
+      vec2 l3 = sdLine(uv, center, center + dirDownLeft * 5.0);
+
+      float intensity = 0.003;
+      float glow = intensity / (l1.x + 0.001) + intensity / (l2.x + 0.001) + (intensity * 0.3) / (l3.x + 0.001);
+
+      float pulse1 = smoothstep(0.1, 0.0, abs(l1.y - fract(u_time * 0.3))) * 0.04 / (l1.x + 0.001);
+      float pulse2 = smoothstep(0.1, 0.0, abs(l2.y - fract(u_time * 0.4 + 0.5))) * 0.04 / (l2.x + 0.001);
+      float pulse3 = smoothstep(0.1, 0.0, abs(l3.y - fract(u_time * 0.2 + 0.8))) * 0.02 / (l3.x + 0.001);
+      glow += pulse1 + pulse2 + pulse3;
+
+      vec2 p1 = center + dirUp * clamp(dot(mouseUV - center, dirUp), 0.0, 5.0);
+      vec2 p2 = center + dirRight * clamp(dot(mouseUV - center, dirRight), 0.0, 5.0);
+      vec2 p3 = center + dirDownLeft * clamp(dot(mouseUV - center, dirDownLeft), 0.0, 5.0);
+
+      float lgt1 = lightning(uv, p1, mouseUV, u_time);
+      float lgt2 = lightning(uv, p2, mouseUV, u_time + 15.0);
+      float lgt3 = lightning(uv, p3, mouseUV, u_time + 25.0);
+
+      float flicker = step(0.15, noise(u_time * 40.0)) * (noise(u_time * 100.0) * 0.7 + 0.3);
+
+      float d1 = length(mouseUV - p1), d2 = length(mouseUV - p2), d3 = length(mouseUV - p3);
+      glow += lgt1 * smoothstep(2.5, 0.0, d1) * u_mouseActive * flicker;
+      glow += lgt2 * smoothstep(2.5, 0.0, d2) * u_mouseActive * flicker;
+      glow += lgt3 * smoothstep(2.5, 0.0, d3) * u_mouseActive * flicker;
+
+      float distToCenter = length(uv - center);
+      glow += 0.04 / (distToCenter + 0.02);
+
+      vec3 baseColor = vec3(0.6, 0.5, 1.0);
+      vec3 finalColor = baseColor * glow;
+      finalColor *= 0.8 + 0.2 * sin(u_time * 1.5 - distToCenter * 6.0);
+
+      float n = fract(sin(dot(gl_FragCoord.xy, vec2(12.9898, 78.233))) * 43758.5453);
+      finalColor += n * 0.015;
+
+      gl_FragColor = vec4(finalColor, 1.0);
+    }
+  `;
+
+  function createShader(gl, type, source) {
+    const shader = gl.createShader(type);
+    gl.shaderSource(shader, source);
+    gl.compileShader(shader);
+    return shader;
+  }
+
+  const prog = gl.createProgram();
+  gl.attachShader(prog, createShader(gl, gl.VERTEX_SHADER, vsSource));
+  gl.attachShader(prog, createShader(gl, gl.FRAGMENT_SHADER, fsSource));
+  gl.linkProgram(prog);
+
+  const info = {
+    program: prog,
+    attrib: gl.getAttribLocation(prog, 'aVertexPosition'),
+    uniforms: {
+      resolution: gl.getUniformLocation(prog, 'u_resolution'),
+      time: gl.getUniformLocation(prog, 'u_time'),
+      mouse: gl.getUniformLocation(prog, 'u_mouse'),
+      mouseActive: gl.getUniformLocation(prog, 'u_mouseActive'),
+    }
+  };
+
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([1,1,-1,1,1,-1,-1,-1]), gl.STATIC_DRAW);
+
+  const startTime = Date.now();
+  function render() {
+    const rect = canvas.parentElement.getBoundingClientRect();
+    if (canvas.width !== rect.width * 2 || canvas.height !== rect.height * 2) {
+      canvas.width = rect.width * 2; canvas.height = rect.height * 2;
+    }
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    gl.useProgram(info.program);
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.vertexAttribPointer(info.attrib, 2, gl.FLOAT, false, 0, 0);
+    gl.enableVertexAttribArray(info.attrib);
+
+    let timeSinceMove = Date.now() - lastMouseMove;
+    let targetActive = timeSinceMove < 150 ? 1.0 : Math.max(0.0, 1.0 - (timeSinceMove - 150) / 350.0);
+    currentMouseActive += (targetActive - currentMouseActive) * 0.1;
+
+    gl.uniform2f(info.uniforms.resolution, canvas.width, canvas.height);
+    gl.uniform1f(info.uniforms.time, (Date.now() - startTime) * 0.001);
+    gl.uniform2f(info.uniforms.mouse, mouseX * 2, mouseY * 2);
+    gl.uniform1f(info.uniforms.mouseActive, currentMouseActive);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  requestAnimationFrame(render);
+})();
+
+// ── Topology Canvas Engine (from index.html) ──
+(function() {
+  class TopologyEngine {
+    constructor(canvasId, type) {
+      this.canvas = document.getElementById(canvasId);
+      if (!this.canvas) return;
+      this.ctx = this.canvas.getContext('2d');
+      const rect = this.canvas.parentElement.getBoundingClientRect();
+      this.width = rect.width || 200; this.height = rect.height || 200;
+      this.canvas.width = this.width * 2; this.canvas.height = this.height * 2;
+      this.ctx.scale(2, 2);
+      this.cx = this.width / 2; this.cy = this.height / 2;
+      this.type = type; this.nodes = []; this.links = []; this.time = 0;
+      this.initStructures(); this.render();
+    }
+    initStructures() {
+      const numNodes = this.type === 'complex' ? 40 : 25;
+      const radius = 65;
+      for (let i = 0; i < numNodes; i++) {
+        const phi = Math.acos(-1 + (2 * i) / numNodes);
+        const theta = Math.sqrt(numNodes * Math.PI) * phi;
+        let x = radius * Math.cos(theta) * Math.sin(phi);
+        let y = radius * Math.sin(theta) * Math.sin(phi);
+        let z = radius * Math.cos(phi);
+        if (this.type === 'lattice') { x=(Math.random()-0.5)*140; y=(Math.random()-0.5)*140; z=(Math.random()-0.5)*140; }
+        this.nodes.push({ baseX:x,baseY:y,baseZ:z, x:x,y:y,z:z, phase:Math.random()*Math.PI*2 });
+      }
+      for (let i=0;i<this.nodes.length;i++) {
+        for (let j=i+1;j<this.nodes.length;j++) {
+          let d = Math.hypot(this.nodes[i].x-this.nodes[j].x, this.nodes[i].y-this.nodes[j].y, this.nodes[i].z-this.nodes[j].z);
+          if (d < (this.type === 'complex' ? 55 : 85)) this.links.push([i,j]);
+        }
+      }
+    }
+    project(node) {
+      const rX=this.time*0.003, rY=this.time*0.005;
+      let x1=node.x*Math.cos(rY)-node.z*Math.sin(rY);
+      let z1=node.z*Math.cos(rY)+node.x*Math.sin(rY);
+      let y1=node.y*Math.cos(rX)-z1*Math.sin(rX);
+      let z2=z1*Math.cos(rX)+node.y*Math.sin(rX);
+      const fov=350, scale=fov/(fov+z2+100);
+      return { x:x1*scale+this.cx, y:y1*scale+this.cy, z:z2, scale:scale };
+    }
+    render() {
+      this.ctx.clearRect(0,0,this.width,this.height);
+      this.time+=1;
+      this.nodes.forEach(n => { const w=Math.sin(this.time*0.02+n.phase)*(this.type==='lattice'?10:3); n.x=n.baseX+w; n.y=n.baseY+w; n.z=n.baseZ+w; });
+      const projected = this.nodes.map(n => this.project(n));
+      this.ctx.lineWidth = 0.5;
+      this.links.forEach(l => {
+        const p1=projected[l[0]], p2=projected[l[1]];
+        const alpha = Math.max(0.05, 0.4-(p1.z+p2.z)/2/400+0.25);
+        this.ctx.beginPath(); this.ctx.moveTo(p1.x,p1.y); this.ctx.lineTo(p2.x,p2.y);
+        this.ctx.strokeStyle = `rgba(255,255,255,${alpha})`; this.ctx.stroke();
+      });
+      projected.forEach(p => {
+        const alpha=Math.max(0.1,0.8-(p.z+100)/400), size=Math.max(0.5,2*p.scale);
+        this.ctx.beginPath(); this.ctx.arc(p.x,p.y,size,0,Math.PI*2);
+        this.ctx.fillStyle = `rgba(255,255,255,${alpha})`; this.ctx.fill();
+      });
+      if (document.body.contains(this.canvas)) requestAnimationFrame(() => this.render());
+    }
+  }
+  new TopologyEngine('ds-topo-1', 'lattice');
+  new TopologyEngine('ds-topo-2', 'sphere');
+  new TopologyEngine('ds-topo-3', 'complex');
+})();
+
+// ── Telemetry Chart (animated, from index.html) ──
+(function() {
+  const canvas = document.getElementById('ds-telemetryChart');
+  if (!canvas || typeof Chart === 'undefined') return;
+  const ctx = canvas.getContext('2d');
+  const labels = Array.from({length:80}, (_,i) => '');
+  function generateData(freq, phase, base, amp) {
+    return labels.map((_,i) => base + Math.sin(i*freq+phase+Date.now()*0.001)*amp*(0.5+Math.random()*0.5));
+  }
+  const gradient1 = ctx.createLinearGradient(0,0,0,250);
+  gradient1.addColorStop(0,'rgba(34,211,238,0.3)'); gradient1.addColorStop(1,'rgba(34,211,238,0.0)');
+  const gradient2 = ctx.createLinearGradient(0,0,0,250);
+  gradient2.addColorStop(0,'rgba(59,130,246,0.2)'); gradient2.addColorStop(1,'rgba(59,130,246,0.0)');
+
+  const chart = new Chart(ctx, {
+    type:'line',
+    data: { labels:labels, datasets:[
+      { data:generateData(0.06,200,30,40), borderColor:'rgba(34,211,238,0.9)', backgroundColor:gradient1, borderWidth:2, fill:true, tension:0.4, pointRadius:0 },
+      { data:generateData(0.04,100,50,30), borderColor:'rgba(59,130,246,0.6)', backgroundColor:gradient2, borderWidth:1.5, fill:true, tension:0.4, pointRadius:0 },
+      { data:generateData(0.02,0,70,20), borderColor:'rgba(55,65,81,0.4)', borderWidth:1, fill:false, tension:0.4, pointRadius:0 }
+    ]},
+    options: { responsive:true, maintainAspectRatio:false, animation:false, plugins:{ legend:{display:false}, tooltip:{enabled:false} }, scales:{ x:{display:false}, y:{display:false, min:0, max:100} }, layout:{padding:0} }
+  });
+  const animate = () => {
+    chart.data.datasets[0].data = generateData(0.06,200,30,40);
+    chart.data.datasets[1].data = generateData(0.04,100,50,30);
+    chart.data.datasets[2].data = generateData(0.02,0,70,20);
+    chart.update('none');
+    requestAnimationFrame(animate);
+  };
+  animate();
+})();
+
+// ── Threat Mitigation Chart (from index.html) ──
+(function() {
+  const canvas = document.getElementById('ds-threatChart');
+  if (!canvas || typeof Chart === 'undefined') return;
+  const ctx = canvas.getContext('2d');
+  const gradient = ctx.createLinearGradient(0,0,0,250);
+  gradient.addColorStop(0,'rgba(244,63,94,0.4)'); gradient.addColorStop(1,'rgba(244,63,94,0.0)');
+
+  new Chart(ctx, {
+    type:'line',
+    data: { labels:['00:00','02:00','04:00','06:00','08:00','10:00','12:00','14:00','16:00','18:00','20:00','22:00'],
+      datasets:[{ label:'Intrusions Mitigated', data:[15,22,18,35,28,45,38,55,42,65,58,72],
+        borderColor:'rgba(244,63,94,0.9)', backgroundColor:gradient, borderWidth:2,
+        pointBackgroundColor:'#050508', pointBorderColor:'rgba(244,63,94,1)', pointBorderWidth:2,
+        pointRadius:4, pointHoverRadius:6, fill:true, tension:0.4
+      }]
+    },
+    options: { responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{display:false},
+        tooltip:{ backgroundColor:'rgba(5,5,8,0.9)', titleColor:'rgba(255,255,255,0.5)', bodyColor:'rgba(255,255,255,0.9)',
+          borderColor:'rgba(255,255,255,0.1)', borderWidth:1, padding:12, displayColors:false,
+          titleFont:{family:'JetBrains Mono',size:10}, bodyFont:{family:'Inter',size:14,weight:'300'},
+          callbacks:{ label:function(c){ return c.parsed.y+' Events Blocked'; } }
+        }
+      },
+      scales:{
+        y:{ beginAtZero:true, grid:{color:'rgba(255,255,255,0.03)',drawBorder:false}, ticks:{color:'rgba(255,255,255,0.3)',font:{family:'JetBrains Mono',size:10},padding:10} },
+        x:{ grid:{display:false,drawBorder:false}, ticks:{color:'rgba(255,255,255,0.3)',font:{family:'JetBrains Mono',size:10},maxTicksLimit:6,padding:10} }
+      },
+      interaction:{ intersect:false, mode:'index' }
+    }
+  });
+})();
+</script>
+
+<!-- Footer -->
+<footer class="w-full pt-12 pb-8 border-t border-white/5 text-center text-xs text-white/20" style="font-family:'JetBrains Mono',monospace;">
+  Aero Design System · Extracted from aero-studio.aura.build · 2024
+</footer>
+
+</body></html>

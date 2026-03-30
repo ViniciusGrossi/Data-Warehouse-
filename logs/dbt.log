@@ -1,0 +1,29 @@
+[0m21:32:28.938559 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000195B0D05160>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000195B2A6FED0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000195B2A6FC50>]}
+
+
+============================== 21:32:28.942719 | ab63bdc0-76cc-463a-9831-617b7c744414 ==============================
+[0m21:32:28.942719 [info ] [MainThread]: Running with dbt=1.11.7
+[0m21:32:28.943349 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'empty': 'None', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\everex\\.dbt', 'use_colors': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt init', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m21:32:31.830218 [debug] [MainThread]: Starter project path: C:\Users\everex\Documents\Jornada de Dados\Projeto DW com IA\Data Warehouse\.venv\Lib\site-packages\dbt\include\starter_project
+[0m21:32:31.844233 [info ] [MainThread]: 
+Your new dbt project "ecommerce" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m21:32:31.845341 [info ] [MainThread]: Setting up your profile.
+[0m21:34:27.025679 [info ] [MainThread]: Profile ecommerce written to C:\Users\everex\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m21:34:27.028423 [debug] [MainThread]: Command `dbt init` succeeded at 21:34:27.028160 after 118.17 seconds
+[0m21:34:27.029182 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000195B3008FC0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000195B2B3E0F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000195B26E3790>]}
+[0m21:34:27.029952 [debug] [MainThread]: Flushing usage events
+[0m21:34:27.930858 [debug] [MainThread]: An error was encountered while trying to flush usage events
